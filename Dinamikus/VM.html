@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtualizáció</title>
+    <link rel="stylesheet" href="Stilusok/Stilus.css">
+</head>
+<body>
+<div class="menu">
+    <a href="Index.html">Főoldal</a>
+    <a href="CPU.html">Processzor</a>
+    <a class="most" href="VM.html">Virtualizáció</a>
+    <a href="VMTelepites.html">VM Teepítése</a>
+</div>
+<h2>Mi a virtualizáció?</h2>
+<p>Egyszerűen megfogalmazva:</p>
+<nav>Szoftveralapú (azaz virtuális), változata egy eszköznek, infrastruktúrának:</nav>
+<nav>-számítógépnek</nav>
+<nav>-tárolóezközöknek</nav>
+<nav>-hálózatnak és hálózati eszköznek</nav>
+<nav>Illetve absztrakt, menedzselt változata egy:</nav>
+<nav>-platformnak vagy</nav>
+<nav>-alkalmazásnak.</nav>
+<p>Egyelőre az első részre, azaz az eszközvirtualizációra koncentrálunk. Ez lényegében virtuális gépek futtatását jelenti virtuális hardveren és virtuális hálózatban.</p>
+<p>Egy virtuális környezet leírásakor az alábbi fogalmakat használjuk:</p>
+<nav>-gazda (host)</nav>
+<nav>-vendég (guest) / VM</nav>
+<nav>-hypervisor</nav>
+<nav>-VMM</nav>
+<h2>Protection Rings</h2>
+<p>Az Intel-implementáció (x86-architektúrákra)</p>
+<p>A gyűrűk hardver-alapú privilégiumszintek.</p>
+<p>A UNIX 0. gyűrűje három részre bomlik</p>
+<nav>0: OS kernel – rezidens rész</nav>
+<nav>1: OS – dinamikusan memóriába töltött részek, eszközmeghajtók</nav>
+<nav>2: OS – eszközmeghajtókhoz való hozzáférés, ha több alkalmazás akar azeszközmeghajtóhoz, memóriához férni</nav>
+<nav>3: User space alkalmazások</nav>
+<p>A gondolat az volt, hogy a felhasználói alkalmazások 3 → 2 → 1 → 0 irányban beszélgetnek a kernellel, de léteznek direkt kernelhívások is. A sok réteg lassulást okoz.</p>
+<p>A mai Windows és Linux a 0-t (kernel space) és a 3-at (user space, userland) használja. Azeszközmeghajtók a kernel részei, így azok 0-ban futnak.</p>
+<br>
+<img class="kep" src="Kepek/12.png" alt="Protection Rings">
+<br>
+<h3 class="kozep">Protection Rings</h3>
+<br>
+<h2>Szoftveres virtualizáció</h2>
+<br>
+<p>A vendég user space alkalmazásaival nincs gond, lévén a gazda hypervisora a kódot natívan futtatja a processzoron. A problémát a vendég kernel ténykedésének elfogása okozza.</p>
+<br>
+<h3>Teljes szoftveres emuláció</h3>
+<p>Rendszerint valósidejű újrafordítást követően futhat a vendég rendszer kódja. A feladat összetett, az eredmény lassú, a felhasználó boldogtalan.</p>
+<br>
+<h3>Paravirtualizáció</h3>
+<p>A vendég OS módosítását igényli. A hardverhozzáférést vagy privilegizált processzormódot igénylő hívások a hypervisorhoz „térülnek el”.
+<br>A teljesítmény jó, a felhasználó boldog – ha rendelkezésre áll módosított OS.</p>
+<br>
+<h3>A való világ</h3>
+<p>A virtualizációs platformok ring0-ban futnak. A vendégrendszerből igyekeznek ring3-ban futtatni amit lehet, amit pedig nem lehet, azzal ügyeskednek.
+<br>A jegyzetünkben tárgyalt VirtualBox nevű virtualizációs platform például a vendég ring0 részeit ring1-ben futtatja, és így amikor a vendég OS igyekezne privilegizált hozzáférést kívánó műveletet végrehajtani, 
+a ring0-ban futó hypervisor beleszólhat.</p>
+<br>
+<img class="kep" src="Kepek/13.png" alt="Virtualizált gép Ring Protection">
+<br>
+<h3 class="kozep">Virtualizált gép Ring Protection</h3>
+<br>
+<p>Az elkapott művelet kerülhet virtuális eszközhöz, vagy újrafordíttatik. Sok probléma megoldása nem magától értetődő, a virtualizációs platform futtathat például saját disassemblert,
+<br>vagy például in-situ patchelést használ – akár tárolva az eredményeket.</p>
+<p>Lévén 2015 óta gyakorlatilag minden számítógép támogatja a hardveres virtualizációt, a VirtualBox a 6.1-es verzióval (2019 végén) kivezette a szoftveres virtualizáció lehetőségét.</p>
+<br>
+<h3>A virtualizáció előnyei</h3>
+<br>
+<nav>jobb erőforrás-kihasználtság</nav>
+<nav>alacsonyabb költségek</nav>
+<nav>agilitás</nav>
+<nav>csökkenő downtime</nav>
+<br>
+<h2>Mi fut a felhőben?</h2>
+<br>
+<p>Talán még emlékszünk a prezentációból, egy felhős rajzra, de ha a kedvenc internetes keresőnkkel a „linux servers mostly cloud meme” képet keresünk, akkor ezer variációban mondják el nekünk a lényeget, 
+<br>de mi inkább arra keressük a választ, hogy milyen munkaterhelést miért szokás a felhőbe vinni.</p>
+<br>
+<img class="kep" src="Kepek/14.png" alt="linux servers mostly cloud meme">
+<br>
+<h3 class="kozep">Asztronauta 1: Várjunk, ezek mind Linux Szerverek?</h3>
+<h3 class="kozep">Asztronauta 2: Mindíg is azok voltak</h3>
+<br>
+<h2>Amikor nem éri meg a földön maradni</h2>
+<nav>elavuló adatközpont</nav>
+<nav>rövid ideig szükséges eszközök</nav>
+<nav>tervezhető költség</nav>
+<nav>sürgős erőforrásigény</nav>
+<nav>messze lévő felhasználók</nav>
+<br>
+<h2>Amikor kényelmetlen a földön maradni</h2>
+<nav>PaaS-ok</nav>
+<nav>hiányzó szakrételem</nav>
+<nav>nem éri meg a megoldás egyéni megvalósításával küzdeni</nav>
+<nav>könnyebb kikényszeríteni az irányelvek betartását</nav>
+<nav>skálázódás, hibatűrés</nav>
+<h2>A felhő ellenében</h2>
+<nav>Adatbiztonsági megfontolások</nav>
+<nav>Törvényi megfelelőség</nav>
+<nav>Legyen kilépési terv</nav>
+<nav>Minél inkább kihasználjuk a felhőt (felhő-natív alkalmazások), annál bonyolultabb otthagyni</nav>
+<nav>Az egyszerű szerverigényeket olcsóbban megkapjuk, ha nem a nagy felhőszolgáltatókhoz mennénk</nav>
+<br>
+<h2>Konténerizáció</h2>
+<p>A konténerizáció olyan megoldás, amelyben nem virtuális gépeket, hanem egyes alkalmazásokat futtatunk egy gazdagépen egymástól elszigetelve. 
+<br>A konténerek kevesebb erőforrást igényelnek, mint a virtuális gépek, és karbantartásuk és lényegesen egyszerűbb, hiszen nincs újabb operációs rendszer az alkalmazás és a fizikai gép között.</p>
+<br>
+<h3>Mi teszi lehetővé?</h3>
+<p>A konténerizáció 2000 körül kezdődött, csak akkor még nem hívták konténerizációnak, hanem virtualizációs környezetnek (virtualization environment, VE). 
+<br>Sok cég közreműködésének köszönhetően a fő Linux-kernel integráns részéve váltak azok az eszközök, amelyek lehetővé teszik a konténerizációt. Ezek lényegében:</p>
+<nav>névterek (önálló fájlrendszer, PID-ek, UID-k, hálózat, …)</nav>
+<nav>cgroup-ok (memória, CPU, disk I/O korlátozása)</nav>
+<nav>kernel capability-k (a root hozzáférés szétbontása elemekre)</nav>
+<p>A mai konténerizáció-megvalósítások (LXC, runC, CoreOS rkt, Mesos, Docker) mindegyike ezekre épül. 
+<br>A konténerek futtatásának natív lehetősége Windowsban a Windows Server 2016-ban jelenik meg (Docker platform használatával), hasonló elvek alapján.</p>
+<br>
+<h3>A Docker és a virtuális gépek viszonya</h3>
+<p>A konténerek működés szempontjából nem jelentenek virtuális környezetet!
+<br>Használatuk mégis sok szempontból hasonló</p>
+<nav>önálló izolált környezetet adnak</nav>
+<nav>önálló (bár a legtöbb esetben lecsupaszított) operációs rendszer az alapjuk</nav>
+<p>Mi a különbség? A konténerek</p>
+<nav>kisebbek</nav>
+<nav>gyorsabbak (kernel ugyanaz)</nav>
+<nav>a fájlrendszerük maradandóan nem módosítható (de ez nem is cél)</nav>
+<hr>
+<header>Ismétlőkérdések</header>
+<br>
+<br>
+<p>1. Kérdés:</p>
+<p>Hány körböl áll az UNIX 0 gyűrűje?</p>
+<br>
+<label> 4 <input type="radio" name="1.kerdes" id="1.1 valasz" value="1"></label>
+<br>
+<label> 3 <input type="radio" name="1.kerdes" id="1.2 valasz" value="0"></label>
+<br>
+<label> 5 <input type="radio" name="1.kerdes" id="1.3 valasz" value="0"></label>
+<br>
+<label> 2 <input type="radio" name="1.kerdes" id="1.4 valasz" value="0"></label>
+<br>
+<br>
+<p>2. Kérdés:</p>
+<p>Hól futnak a virtualizációs platform?</p>
+<br>
+<label>ring3-ban<input type="radio" name="2.kerdes" id="2.1 valasz" value="0"></label>
+<br>
+<label>ring1-ben <input type="radio" name="2.kerdes" id="2.2 valasz" value="0"></label>
+<br>
+<label>ring2-ben <input type="radio" name="2.kerdes" id="2.3 valasz" value="0"></label>
+<br>
+<label>ring0-ban <input type="radio" name="2.kerdes" id="2.4 valasz" value="1"></label>
+<br>
+<br>
+<p>3. Kérdés:</p>
+<p>Mi a virtualizáció előnyei</p>
+<br>
+<label>Jobb erőforrás-kihasználtság <input type="checkbox" name="3.kerdes" id="3.1 valasz" value="1"></label>
+<br>
+<label>Egyszerűbb rajta +18 filmet nézni <input type="checkbox" name="3.kerdes" id="3.2 valasz" value="-1"></label>
+<br>
+<label>Agilitás <input type="checkbox" name="3.kerdes" id="3.3 valasz" value="1"></label>
+<br>
+<label>Ileegális dolgokat lehetősége rajta végezni <input type="checkbox" name="3.kerdes" id="3.4 valasz" value="-1"></label>
+<br>
+<br>
+<p>4. Kérdés:</p>
+<p>Mi a konténer egyik előnye a virtuális géppel szemben?</p>
+<br>
+<label>Gyorsabbak <input type="radio" name="4.kerdes" id="4.2 valasz" value="1"></label>
+<br>
+<label>Komplexebbek <input type="radio" name="4.kerdes" id="4.2 valasz" value="0"></label>
+<br>
+<input type="submit" value="Kérem a Jó jegyemet :)">
+</body>
+</html>

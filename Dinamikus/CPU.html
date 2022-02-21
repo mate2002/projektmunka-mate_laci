@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processzor</title>
+    <link rel="stylesheet" href="Stilusok/Stilus.css">
+</head>
+<body>
+<div class="menu">
+    <a href="Index.html">Főoldal</a>
+    <a class="most" href="CPU.html">Processzor</a>
+    <a href="VM.html">Virtualizáció</a>
+    <a href="VMTelepites.html">VM Teepítése</a>
+</div>
+<h1 class="kozep">A Processzor</h1>
+<p>
+A CPU (központi feldolgozóegység) más néven processzor, ill. mikroprocesszor,  a számítógép „agya”, azon egysége, amely az utasítások értelmezését és végrehajtását vezérli, félvezetős kivitelezésű, összetett elektronikus áramkör.
+<br>Míg a processzor fogalma már korábban ismert volt, a mikroprocesszor megjelenését csak a félvezetős technológia és az integrált áramkörök kifejlesztése tette lehetővé, az 1970-es évek elején. 
+<br>A processzor alatt általában mikroprocesszort értünk, régebben a processzor sok különálló áramkör volt, ám a mikroprocesszorral sikerült a legfontosabb komponenseket egyetlen szilíciumlapkára integrálni.
+</p>
+<a href="#ALU"><section>ALU: (Arithmetic and Logical Unit)</section></a>
+<a href="#AGU"><section>AGU: (Address Generation Unit)</section></a>
+<a href="#CU"><section>CU: (Control Unit)</section></a>
+<a href="#Regi"><section>Regiszter (Register)</section></a>
+<a href="#Busz"><section>Buszvezérlő</section></a>
+<a href="#Cache"><section>Cache</section></a>
+<br>
+<a name="ALU"><h4>ALU: (Arithmetic and Logical Unit)</h4></a>
+<p>ALU: (Arithmetic and Logical Unit – Aritmetikai és Logikai Egység). A processzor alapvető alkotórésze, ami alapvető matematikai és logikai műveleteket hajt végre.
+<br>Sebessége növelhető egy koprocesszor (FPU, Floating Point Unit, lebegőpontos műveleteket végző egység) beépítésével.
+<br>Az FPU korábban külön részegység volt, manapság a processzorok mindegyike beépítve tartalmazza.</p>
+<br>
+<img class="kep" src="Kepek/4.jpg" alt="ALU" width="800" height="460">
+<br>
+<h3 class="kozep">ALU Információ leadása</h3>
+<br>
+<a name="AGU"><h4>AGU: (Address Generation Unit)</h4></a>
+<p>AGU: (Address Generation Unit) - a címszámító egység, feladata a programutasításokban található címek leképezése a főtár fizikai címeire és a tárolóvédelmi hibák felismerése.</p>
+<img class="kep" src="Kepek/5.png" alt="AGU" width="800" height="460">
+<br>
+<h3 class="kozep">AGU Információ leadása</h3>
+<br>
+<a name="CU"><h4>CU: (Control Unit)</h4></a>
+<p>CU: (Control Unit a.m. vezérlőegység vagy vezérlőáramkör). Ez szervezi, ütemezi a processzor egész munkáját.
+<br>Például lehívja a memóriából a soron következő utasítást, értelmezi és végrehajtatja azt, majd meghatározza a következő utasítás címét.</p>
+<br>
+<img class="kep" src="Kepek/6.png" alt="CU" width="800" height="460">
+<br>
+<h3 class="kozep">A vezérlőáramkör működése</h3>
+<br>
+<a name="Regi"><h4>Regiszter (Register)</h4></a>
+<p> A regiszter a processzorba beépített nagyon gyors elérésű, kis méretű memória.
+<br>A regiszterek addig (ideiglenesen) tárolják az információkat, utasításokat, amíg a processzor dolgozik velük.
+<br>A mai gépekben 32/64 bit méretű regiszterek vannak. A processzor adatbuszai mindig akkorák, amekkora a regiszterének a mérete, így egyszerre tudja az adatot betölteni ide. 
+<br>Például egy 32 bites regisztert egy 32 bites busz kapcsol össze a RAM-mal. 
+<br>A regiszterek között nem csak adattároló elemek vannak (bár végső soron mindegyik az), hanem a processzor működéséhez elengedhetetlenül szükséges számlálók, és jelzők is. Ilyen például :</p>
+<nav>utasításszámláló, (PC=program counter, IP=instruction pointer) ami mindig a következő végrehajtandó utasítás címét,</nav>
+<nav>utasításregiszter (IR=instruction register), mely a memóriából kiolvasott utasítást tárolja. E kód alapján határozza meg a vezérlőegység az elvégzendő műveletet</nav>
+<nav>flagregiszter, amely a processzor működése közben létrejött állapotok jelzőit (igaz, vagy hamis)</nav>
+<nav>veremmutató (SP = Stack Pointer)</nav>
+<nav>és az akkumulátor, (AC) amely pedig a logikai és aritmetikai műveletek egyik operandusát, majd az utasítás végrehajtása után az eredményt tartalmazza.</nav>
+<br>
+<img class="kep" src="Kepek/7.png" alt="regiszter" width="800" height="460">
+<br>
+<h3 class="kozep">A regiszter elhelyezkedése</h3>
+<a name="Busz"><h4 name="Busz">Buszvezérlő</h4></a>
+<p>Buszvezérlő: A regisztert és más adattárolókat összekötő buszrendszert irányítja. A busz továbbítja az adatokat.</p>
+<br>
+<img class="kep" src="Kepek/8.png" alt="Buszvezérlő" width="800" height="460">
+<br>
+<h3 class="kozep">Egy Buszvezérlő</h3>
+<a name="Cache"><h4>Cache</h4></a>
+<p>A Cache modern processzorok fontos része a cache (gyorsítótár). A cache a processzorba, vagy a processzor környezetébe integrált memória, 
+<br>ami a viszonylag lassú rendszermemória-elérést hivatott kiváltani azoknak a programrészeknek és adatoknak előzetes beolvasásával, amikre a végrehajtásnak közvetlenül szüksége lehet. 
+<br>A mai PC processzorok általában két gyorsítótárat használnak, egy kisebb (és gyorsabb) első szintű (L1) és egy nagyobb másodszintű (L2) cache-t. A gyorsítótár mérete ma már megabyte-os nagyságrendű.</p>
+<br>
+<img class="kep" src="Kepek/9.png" alt="Cache" width="800" height="600">
+<br>
+<h3 class="kozep">A cache működése</h3>
+<h2>A processzor tokozása</h2>
+<p>Tokozáson a processzor külső burkát, érintkezőinek kialakítását értjük.</p>
+<p>Három elterjedt fajtája van:</p>
+<a href="#LGA"><section>LGA-tokozás</section></a>
+<a href="#PGA"><section>PGA-tokozás</section></a>
+<a href="#SECC"><section>SECC-tokozás</section></a>
+<a name="LGA"><h4>LGA-tokozás</h4></a>
+<p>az előző kialakításokkal szemben a tűsor az alaplapon helyezkedik el, míg a processzoron csak úgynevezett érintőpadok találhatóak.</p>
+<br>
+<img class="kep" src="Kepek/10.jpg" alt="LGA Foglalat és CPU Kinézet" width="800" height="460">
+<br>
+<h3 class="kozep">LGA Foglalat és CPU Kinézet</h3>
+<br>
+<a name="PGA"><h4>PGA-tokozás</h4></a>
+<p>itt a csatlakozók a négyzet alakú tok alján helyezkednek el. Ezen belül is lehet:</p>
+<nav>CPGA, azaz kerámiatok</nav>
+<nav>PPGA műanyag tok</nav>
+<br>
+<img class="kep" src="Kepek/11.jpg" alt="PGA Foglalat" width="800" height="460">
+<br>
+<h3 class="kozep">PGA Foglalat</h3>
+<br>
+<a name="SECC"><h4>SECC-tokozás<h4></a>
+<p>a tok inkább egy kazettára hasonlít, az érintkezők (tűk) az alján vannak.</p>
+<hr>
+<header>Ismétlőkérdések</header>
+<br>
+<br>
+<p>1. Kérdés:</p>
+<p>Mit vezérel a processzor?</p>
+<br>
+<label>Utasításokat értelmezését és végrehajtását <input type="radio" name="1.kerdes" id="1.1 valasz" value="1"></label>
+<br>
+<label>A gép hűtését szolgálja <input type="radio" name="1.kerdes" id="1.2 valasz" value="0"></label>
+<br>
+<label>Komplex 3D grafikai progamokat hoz létre <input type="radio" name="1.kerdes" id="1.3 valasz" value="0"></label>
+<br>
+<label>A Ladát <input type="radio" name="1.kerdes" id="1.4 valasz" value="0"></label>
+<br>
+<br>
+<p>2. Kérdés:</p>
+<p>Minek a rövidítése az ALU?</p>
+<br>
+<label>ALUminum lemez<input type="checkbox" name="2.kerdes" id="2.1 valasz" value="-1"></label>
+<br>
+<label>A Lusta Munkás <input type="checkbox" name="2.kerdes" id="2.2 valasz" value="-1"></label>
+<br>
+<label>Arithmetic and Logical Unit <input type="checkbox" name="2.kerdes" id="2.3 valasz" value="1"></label>
+<br>
+<label>Aritmetikai és Logikai Egység <input type="checkbox" name="2.kerdes" id="2.4 valasz" value="1"></label>
+<br>
+<br>
+<p>3. Kérdés:</p>
+<p>Hol található a tűsor az LGA-tokozásban?</p>
+<br>
+<label>A processzoron <input type="radio" name="3.kerdes" id="3.2 valasz" value="1"></label>
+<br>
+<label>A foglatban <input type="radio" name="3.kerdes" id="3.2 valasz" value="1"></label>
+<br>
+
+<br>
+<p>4. Kérdés:</p>
+<p>Hol található a register</p>
+<br>
+<label>A processzoron belül<input type="radio" name="4.kerdes" id="4.2 valasz" value="0"></label>
+<br>
+<label>A processzoron kivűl a parancssoron<input type="radio" name="4.kerdes" id="4.2 valasz" value="0"></label>
+<br>
+<input type="submit" value="Kérem a Jó jegyemet :)">
+</body>
+</html>
+ 

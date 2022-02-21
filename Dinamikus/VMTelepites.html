@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VM Teepítése</title>
+    <link rel="stylesheet" href="Stilusok/Stilus.css">
+</head>
+<body>
+    <div class="menu">
+        <a href="Index.html">Főoldal</a>
+        <a href="CPU.html">Processzor</a>
+        <a href="VM.html">Virtualizáció</a>
+        <a class="most" href="VMTelepites.html">VM Teepítése</a>
+    </div>
+<h1 class="kozep">Virtuális számítógép telepítése</h1>
+<p>A VMware Workstaion Pro nevű programon mutatjuk be, hogy kell telepíteni egy vírtuális gépet.</p>
+<h4>1. lépés: Megnyitjuk a programot.</h4>
+<img class="kep" src="Kepek/15.png" alt="VMware kezdőképernyője" width="800" height="600">
+<h4>2. lépés: Rákattintuk a "Create a New Virtual Machine" nevű opcióra és kiválasztjuk a "Custom(advanced)" opciót a felugró ablakban.</h4>
+<img class="kep" src="Kepek/16.png" alt="VMware beállítássor 1">
+<h4>3. lépés: "Next" gombra rákattintuk, mert ezek a beállítások megfelelnek.</h4>
+<img class="kep" src="Kepek/17.png" alt="VMware beállítássor 2">
+<h4>4. lépés: Kiválasztjuk "I will install the opreating system later" opciót, és a "Next" gombra rákattintuk.</h4>
+<img class="kep" src="Kepek/18.png" alt="VMware beállítássor 3">
+<h4>4. lépés: Kiválasztjuk a telepíteni kívánt operációs rendszert. Mi a Windows 10-et telepítjük fel, és a "Next" gombra rákattintuk.</h4>
+<img class="kep" src="Kepek/19.png" alt="VMware beállítássor 4">
+<h4>5. lépés: Tetszés szerint átírjuk a virtuális számítógép nevét, és meghatározzunk a telepítés helyét, és a "Next" gombra rákattintuk.</h4>
+<img class="kep" src="Kepek/20.png" alt="VMware beállítássor 5">
+<h4>6. lépés: "Next" gombra rákattintuk, mert ezek a beállítások megfelelnek.</h4>
+<img class="kep" src="Kepek/21.png" alt="VMware beállítássor 6">
+<h4>7. lépés: Kiválasztjuk a használni kíánt CPU-k számát, valamint mennyi magot haszáljon ki belőle, és a "Next" gombra rákattintuk.</h4>
+<img class="kep" src="Kepek/22.png" alt="VMware beállítássor 7">
+<h4>8. lépés: Testreszabjuk a használni kívánt RAM mennyiséget. A program megadja az ajánlottat, de mi felülírhatjuk, csak ne adjunk meg a megengedettnél magasabbat, mert instabil lesz a fizikai gép is
+,meg a virtuális gép is. Mi 8 GB ramot adunk neki,és a "Next" gombra rákattintuk.</h4>
+<img class="kep" src="Kepek/23.png" alt="VMware beállítássor 8">
+<h4>9. lépés: "Next" gombra rákattintuk, mert ezek a beállítá megfelel.</h4>
+<img class="kep" src="Kepek/24.png" alt="VMware beállítássor 9">
+<h4>10. lépés: "Next" gombra rákattintuk, mert ezek a beállítás megfelel.</h4>
+<img class="kep" src="Kepek/25.png" alt="VMware beállítássor 10">
+<h4>11. lépés: "Next" gombra rákattintuk, mert ezek a beállítás megfelel.</h4>
+<img class="kep" src="Kepek/26.png" alt="VMware beállítássor 11">
+<h4>12. lépés: "Next" gombra rákattintuk, mert ezek a beállítás megfelel.</h4>
+<img class="kep" src="Kepek/27.png" alt="VMware beállítássor 12">
+<h4>13. lépés: Itt megadjuk a felhaszálható tárhelyet, amit a virtuális gép fel tud használni. Mi 120GB ajánlunk, mert a Windows 10 frissitések után több mint 80 GB helyet foglal.
+<br> Ezt később lehet bővíteni, ha kivánjuk. Rákattintuk a "Store virtual disk as a single file" opcióra,és a "Next" gombra rákattintuk.</h4>
+<img class="kep" src="Kepek/28.png" alt="VMware beállítássor 13">
+<h4>14. lépés: Ha kivánjuk, átnevezehtjük a virtuális merevlemezünket,és a "Next" gombra rákattintuk.</h4>
+<img class="kep" src="Kepek/29.png" alt="VMware beállítássor 14">
+<h4>15. lépés: A program összegzi nekünk az eddig bevitt adatokat. Ha minden megfelel, rákattintuk a "Finnish" gombra.</h4>
+<img class="kep" src="Kepek/30.png" alt="VMware beállítássor 15">
+<h4>16. lépés: Feltelepítjük a Windows 10 operációs rendszert. Rákattintuk a "CD/DVD (SATA)" nevü gombra, ami a "Devices" nevü ablakban található.</h4>
+<img class="kep" src="Kepek/31.png" alt="VMware beállítássor 16">
+<h4>17. lépés: Az előugró ablakban kiválasztjuk a "Use ISO image file:" nevü opciót, és a "Browse..." gombra kattintva kiválasztjuk a teklepítő ISO fáljunkat, majd az "OK" gombra rákattintuk.</h4>
+<img class="kep" src="Kepek/32.png" alt="VMware beállítássor 17">
+<h4>18. lépés: Rákattintuk a "Power on this virtual machine" gombra, és Feltelepítjük a Windows 10-et, ugyanúgy, mintha a valós gépünkre tennénk fel.</h4>
+<img class="kep" src="Kepek/33.png" alt="VMware beállítássor 18">
+<hr>
+<header>Ismétlőkérdések</header>
+<br>
+<br>
+<p>1. Kérdés:</p>
+<p>Mikoe telepítjük fel a Windows-t?</p>
+<br>
+<label> A virtuális gép létrehozása után <input type="radio" name="1.kerdes" id="1.1 valasz" value="1"></label>
+<br>
+<label> Amint elérhető a telepítés során <input type="radio" name="1.kerdes" id="1.2 valasz" value="0"></label>
+<br>
+<br>
+<p>2. Kérdés:</p>
+<p>Hány GB RAM-ot ajánlunk a telepítés során?</p>
+<br>
+<label>2<input type="radio" name="2.kerdes" id="2.1 valasz" value="0"></label>
+<br>
+<label>8<input type="radio" name="2.kerdes" id="2.2 valasz" value="1"></label>
+<br>
+<label>4<input type="radio" name="2.kerdes" id="2.3 valasz" value="0"></label>
+<br>
+<label>6<input type="radio" name="2.kerdes" id="2.4 valasz" value="0"></label>
+<br>
+<br>
+<p>3. Kérdés:</p>
+<p>A merevlemez tipusválasztásnál, mit ajál fel a program autómatikusan?</p>
+<br>
+<label>IDE <input type="radio" name="3.kerdes" id="3.1 valasz" value="0"></label>
+<br>
+<label>SCSI <input type="radio" name="3.kerdes" id="3.2 valasz" value="0"></label>
+<br>
+<label>SATA <input type="radio" name="3.kerdes" id="3.3 valasz" value="0"></label>
+<br>
+<label>NVMe<input type="radio" name="3.kerdes" id="3.4 valasz" value="1"></label>
+<br>
+<br>
+<p>4. Kérdés:</p>
+<p>Hány GB merevlemez helyet ajánlunk a telepítés során?</p>
+<br>
+<label>120 GB <input type="radio" name="4.kerdes" id="4.2 valasz" value="1"></label>
+<br>
+<label>80 GB <input type="radio" name="4.kerdes" id="4.2 valasz" value="0"></label>
+<br>
+<label>60 GB <input type="radio" name="4.kerdes" id="4.2 valasz" value="0"></label>
+<br>
+<br>
+<input type="submit" value="Kérem a Jó jegyemet :)">
+
+
+</body>
+</html>

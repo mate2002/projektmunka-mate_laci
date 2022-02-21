@@ -1,0 +1,94 @@
+body
+{
+    background-image: url(../Kepek/1.jpg);
+    font-size: 20pt;
+    font-family: 'Times New Roman', Times, serif;
+    color: whitesmoke;
+}
+.menu
+{
+    background-color: transparent;
+    text-align: center;
+    margin: 5px;
+}
+.menu a
+{
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(255, 0, 0);
+    padding: 10px;
+}
+
+.menu a:hover
+{
+    color: rgb(0, 255, 42);
+    background-color: transparent;
+}
+.most
+{
+    color:rgb(251, 255, 1) !important;
+}
+h1
+{
+    color: chartreuse;
+    text-shadow: black;
+    font-weight: bold;
+}
+h2
+{
+    font-weight: bolder;
+    color: rgb(170, 255, 0);
+    text-shadow: black;
+}
+.bal
+{
+    margin-left: 125px;
+    color: whitesmoke;
+    text-shadow: black;
+}
+p
+{
+    font-weight: bold;
+    color: rgb(255, 238, 0);
+    text-shadow: black;
+}
+section
+{
+    text-decoration: none;
+    color: rgb(255, 238, 0);
+}
+section:hover
+{
+    color: whitesmoke;
+    text-decoration: none;
+}
+nav
+{
+    text-decoration: none;
+    color: rgb(255, 238, 0);
+    font-weight: bold;
+}
+a
+{
+    text-decoration: none;
+}
+.kep
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.kozep
+{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-shadow: black!important ;
+
+}
+header
+{
+    text-align: center;
+    color: whitesmoke;
+    font-size: 8ch;
+    text-decoration: underline yellow;
+}
